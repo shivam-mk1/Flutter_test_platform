@@ -1,0 +1,44 @@
+# sandbox/packages/pubspec.yaml
+#
+# This file is used ONLY during Docker image build to pre-seed the package cache.
+# It must list the same packages as shared/pubspec.js APPROVED_PACKAGES.
+#
+# Build step (in Dockerfile):
+#   flutter pub get   ← runs with network, populates /exam-pub-cache
+#
+# At runtime, the container uses --offline and reads from /exam-pub-cache.
+# Expanding the allowlist requires:
+#   1. Add package here
+#   2. Add package to shared/pubspec.js APPROVED_PACKAGES
+#   3. docker build ./sandbox → rebuilds image with updated cache
+#   4. Bump EXAM_ENV_VERSION if backward-incompatible
+
+name: exam_package_cache_seeder
+description: Cache seeder — not a real project, used during image build only
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+  flutter: '>=3.22.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Approved exam packages — must match shared/pubspec.js APPROVED_PACKAGES
+  provider:             ^6.1.2
+  go_router:            ^14.2.7
+  flutter_bloc:         ^8.1.6
+  equatable:            ^2.0.5
+  http:                 ^1.2.1
+  intl:                 ^0.19.0
+  shared_preferences:   ^2.3.1
+  collection:           ^1.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints:        ^4.0.0
+
+flutter:
+  uses-material-design: true

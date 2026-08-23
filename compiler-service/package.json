@@ -1,23 +1,31 @@
 {
   "name": "exam-platform-compiler-service",
-  "version": "0.1.0",
-  "description": "Sandboxed Dart/Flutter execution — Express API + BullMQ worker + Dockerode",
+  "version": "0.2.0",
+  "description": "Flutter project validation service — Express API + BullMQ worker + Docker sandbox",
   "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev:api": "nodemon api/src/index.js",
     "dev:worker": "nodemon worker/src/index.js",
     "start:api": "node api/src/index.js",
     "start:worker": "node worker/src/index.js",
-    "sandbox:build": "docker build -t exam-platform/dart-sandbox:latest ./sandbox"
+    "sandbox:build": "docker build -t exam-platform/flutter-sandbox:v1 ./sandbox",
+    "sandbox:build:arg": "docker build --build-arg FLUTTER_VERSION=${FLUTTER_VERSION:-3.24.5} -t exam-platform/flutter-sandbox:v1 ./sandbox",
+    "test:unit": "node --test tests/unit/validate.test.js tests/unit/parser.test.js",
+    "test:integration": "node --test tests/integration/run-api.test.js",
+    "test": "npm run test:unit",
+    "load-test": "node tests/load-test.js"
   },
   "dependencies": {
     "bullmq": "^5.12.0",
+    "cors": "^2.8.5",
     "dockerode": "^4.0.2",
+    "dotenv": "^16.4.5",
     "express": "^5.0.0",
     "ioredis": "^5.4.1",
-    "dotenv": "^16.4.5",
-    "cors": "^2.8.5",
-    "uuid": "^10.0.0"
+    "uuid": "^14.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

@@ -1,0 +1,56 @@
+﻿Flutter Compiler Load Test
+API: http://localhost:5000  Run: mt0jdxvt  Students/wave: 3  Waves: 1  Poll: 2000ms
+
+ΓöÇΓöÇ Wave 1/1: submitting 3 students to http://localhost:5000 ΓöÇΓöÇ
+Accepted 3/3. Polling every 2000ms...
+
+Job Results
+ # W  Workload              Job ID       State             Queue     Exec      Total   Status
+ 1 1  valid-simple          67065ed6-4  completed            54ms    18.11s    18.17s  success/analyze errs=0
+ 2 1  type-mismatch         80aed9d5-c  completed          18.15s    18.10s    36.25s  error/analyze errs=1
+ 3 1  undefined-method      5a788a54-9  completed          36.25s    16.11s    52.36s  error/analyze errs=1
+
+Per-Job Timing Breakdown (from result.timing)
+ # W  Workload               Container    PubGet       Analyze      Parse        Total(wkr)   Unaccounted
+ 1 1  valid-simple                 223ms        1.39s       16.14s          1ms       17.79s  33ms
+ 2 1  type-mismatch                314ms        1.45s       15.12s          1ms       16.91s  23ms
+ 3 1  undefined-method             208ms        1.52s       14.39s          0ms       16.14s  21ms
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+ Flutter Compiler Load Test
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+Students/wave:         3    Waves: 1    Total jobs: 3
+Successful:            3
+Failed/unexpected:     0
+Global timeout:        0
+
+Total batch time:      52.39s
+Average job time:      35.59s
+Median job time:       36.25s
+Min job time:          18.17s
+Max job time:          52.36s
+
+Average queue wait:    18.15s
+Median queue wait:     18.15s
+Max queue wait:        36.25s
+
+Average execution:     17.44s
+Median execution:      18.10s
+Max execution:         18.11s
+
+Worker-side timing breakdown (3/3 jobs with timing data):
+                       Avg          Median       Max
+  Container start             248ms        223ms        314ms
+  Pub get / cache             1.46s        1.45s        1.52s
+  flutter analyze            15.22s       15.12s       16.14s
+  Result parse                  1ms          1ms          1ms
+  Total (worker)             16.95s       16.91s       17.79s
+
+  Dominant phase: flutter analyze (90% of avg worker-side total)
+
+Throughput:            0.06 jobs/sec
+
+NOTE: RUN is analyze-only (┬º2). flutter build web is NOT part of this test.
+      Benchmark only validates that flutter analyze meets exam time budgets.
+Result: PASS Γ£ô
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ

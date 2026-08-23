@@ -3,5 +3,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+# Create the workspace base directory used for per-job Flutter project dirs.
+# Must be outside /tmp because the sandbox container mounts a tmpfs at /tmp.
+RUN mkdir -p /exam-workspaces
 # Worker needs access to Docker socket (mounted at runtime in compose)
 CMD ["node", "worker/src/index.js"]
